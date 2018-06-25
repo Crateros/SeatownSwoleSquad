@@ -1,0 +1,28 @@
+@import '../../styles/_variables';
+
+.daily-workout-container {
+  width: 50%;
+  margin: 0 auto;
+
+  .title {
+    text-transform: uppercase;
+    font-family: 'Bangers';
+  }
+
+  .daily-workout-content {
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  .skill-card, .wod-card {
+    font-family: 'PermanentMarker';
+    margin: 0 auto;
+    width: 45%;
+    color: $color5;
+    background-color: $color3;
+  }
+
+  .daily-workout-board {
+    font-size: 1.5rem;
+  }
+}

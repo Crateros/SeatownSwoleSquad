@@ -1,0 +1,36 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* Angular Material */
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+
+/* Custom fonts */
+
+@font-face {
+  font-family: 'PermanentMarker';
+  src: url('./assets/fonts/PermanentMarker-Regular.ttf');
+  font-weight: normal;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-shadow: rgba(0, 0, 0, .01) 0 0 1px;
+}
+
+@font-face {
+  font-family: 'Bangers';
+  src: url('./assets/fonts/Bangers-Regular.ttf');
+  font-weight: normal;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-shadow: rgba(0, 0, 0, .01) 0 0 1px;
+}
+
+// Color variables
+@import 'app/styles/_variables';
+
+// Color Pallete
+$color1: rgba(252, 252, 252, 1) !default;
+$color2: rgba(247, 86, 124, 1) !default;
+$color3: rgba(255, 250, 227, 1) !default;
+$color4: rgba(153, 225, 217, 1) !default;
+$color5: rgba(93, 87, 107, 1) !default;

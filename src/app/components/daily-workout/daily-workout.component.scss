@@ -1,4 +1,4 @@
-@import '../../styles/_variables';
+// @import '../../styles/_variables';
 
 .daily-workout-container {
   width: 50vw;
@@ -9,6 +9,7 @@
   .date {
     text-transform: uppercase;
     text-align: left;
+    font-size: 2rem;
   }
 
   .date {
@@ -27,7 +28,7 @@
     margin: 0 auto;
     width: 45%;
     color: black;
-    background-color: $color3;
+    // background-color: $color3;
     text-align: center;
   }
 
@@ -39,8 +40,8 @@
     font-size: 2rem;
   }
 
-  .color2 {
-    color: $color2;
-  }
+  // .color2 {
+  //   color: $color2;
+  // }
 
 }

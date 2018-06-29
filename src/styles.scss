@@ -3,6 +3,9 @@
 /* Angular Material */
 @import '~@angular/material/prebuilt-themes/indigo-pink.css';
 
+// Color variables
+@import 'app/styles/_variables';
+
 /* Custom fonts */
 @font-face {
   font-family: 'PermanentMarker';
@@ -44,12 +47,108 @@
   text-shadow: rgba(0, 0, 0, .01) 0 0 1px;
 }
 
-// Color variables
-@import 'app/styles/_variables';
+// Material overrides
+.mat-tab-header {
+  height: 3.5rem;
 
-// Color Pallete
-$color1: rgba(252, 252, 252, 1) !default;
-$color2: rgba(247, 86, 124, 1) !default;
-$color3: rgba(255, 250, 227, 1) !default;
-$color4: rgba(153, 225, 217, 1) !default;
-$color5: rgba(93, 87, 107, 1) !default;
+  .mat-tab-label {
+    height: 3.375rem;
+  }
+
+  mat-ink-bar {
+    background-color: $color2 !important;
+  }
+}
+
+// CSS Chunks
+.flex {
+  display: flex;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.color1 {
+  color: $color1;
+}
+
+.bg-color1 {
+  background-color: $color1;
+}
+
+.color2 {
+  color: $color2;
+}
+
+.bg-color2 {
+  background-color: $color2;
+}
+
+.color3 {
+  color: $color3;
+}
+
+.bg-color3 {
+  background-color: $color3;
+}
+
+.color4 {
+  color: $color4;
+}
+
+.bg-color4 {
+  background-color: $color4;
+}
+
+.color5 {
+  color: $color5;
+}
+
+.bg-color5 {
+  background-color: $color5
+}
+
+.color6 {
+  color: $color6;
+}
+
+.bg-color6 {
+  background-color: $color6;
+}
+
+.color7 {
+  color: $color7;
+}
+
+.bg-color7 {
+  background-color: $color7;
+}
+
+.color8 {
+  color: $color8;
+}
+
+.bg-color8 {
+  background-color: $color8;
+}
+
+.color9 {
+  color: $color9;
+}
+
+.bg-color9 {
+  background-color: $color9;
+}
+
+.color10 {
+  color: $color10;
+}
+
+.bg-color10 {
+  background-color: $color10;
+}

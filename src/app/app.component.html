@@ -1,10 +1,10 @@
-<div class="accent-bar color7"></div>
+<div class="accent-bar bg-color7"></div>
 <div class="logo-container flex">
-  <div class="accent-bar color6 right-round half"></div>
+  <div class="accent-bar bg-color6 right-round half"></div>
   <div class="logo">
     <img src="../assets/images/logo.svg" alt="Seatown Crossfit">
   </div>
-  <div class="accent-bar color6 left-round half">
+  <div class="accent-bar bg-color6 left-round half">
     <a href="https://www.instagram.com/seatowncrossfit/" target="_blank">
       <img class="instagram" src="../assets/images/instagram.svg" alt="Instagram">
     </a>
@@ -15,14 +15,21 @@
   <div class="app-name">Swole Squad</div>
   <img src="../assets/images/bicep-right.png" alt="bicep">
 </div>
-<div class="accent-bar-small center color7 left-round right-round"></div>
+<div class="accent-bar-small center bg-color7 left-round right-round"></div>
+<app-user-alerts></app-user-alerts>
 <mat-tab-group dynamicHeight>
-  <mat-tab label="Daily Workout">
+  <mat-tab>
+    <ng-template mat-tab-label>
+      <img class="kettlebell" src="../assets/images/weight.svg" alt="kettlebell">
+    </ng-template>
     <div class="example-large-box mat-elevation-z4">
       <app-daily-workout></app-daily-workout>
     </div>
   </mat-tab>
-  <mat-tab label="Profile">
+  <mat-tab>
+    <ng-template mat-tab-label>
+      <img class="barbell" src="../assets/images/barbell.svg" alt="barbell">
+    </ng-template>
     <div class="example-small-box mat-elevation-z4">
       <button mat-button (click)="getUserStats()">Click me!</button>
       <div>
@@ -31,9 +38,12 @@
     </div>
   </mat-tab>
 </mat-tab-group>
-<div class="accent-bar color7 large flex">
-  <div>
-    <p class="address">8316 Aurora Ave N. Seattle, WA 98103</p>
+<div class="accent-bar bg-color7 large flex footer-container">
+  <div></div>
+  <div class="flex align-center">
+    <img class= "footer-copywrite" src="../assets/images/copyright-slim.svg" alt="copywrite">
+    <img class="footer-logo" src="../assets/images/logo.svg" alt="Seatown Crossfit">
   </div>
+  <div class="throwback">Since 2014</div>
 </div>
 

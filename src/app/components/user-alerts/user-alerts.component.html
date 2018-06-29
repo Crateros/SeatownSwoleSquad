@@ -1,3 +1,4 @@
-<p>
-  user-alerts works!
-</p>
+<div *ngIf="alertStatus" class="alert-status flex">
+  <img src="../../../assets/images/bullhorn.svg" alt="bullhorn">
+  <p class="alert">{{ alert }}</p>
+</div>

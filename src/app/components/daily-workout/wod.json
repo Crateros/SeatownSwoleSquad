@@ -1,0 +1,34 @@
+{
+  "completion": {
+    "amount": "10-9-8-7-6-5-4-3-2-1",
+    "type": "time"
+  },
+  "movements": [
+    {
+      "bodyWeight": 1.5,
+      "name": "deadlift",
+      "reps": 30
+    },
+    {
+      "bodyWeight": 1,
+      "name": "bench",
+      "reps": 30
+    },
+    {
+      "bodyWeight": 0.75,
+      "name": "clean",
+      "reps": 30
+    }
+  ],
+  "name": "Linda",
+  "top_records": {
+    "first": {
+      "score": "03:24",
+      "username": "dsvene"
+    },
+    "second": {
+      "score": "02:38",
+      "username": "zjhamm"
+    }
+  }
+}

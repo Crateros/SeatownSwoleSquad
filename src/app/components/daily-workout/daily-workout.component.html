@@ -1,31 +1,38 @@
 <mat-card class="daily-workout-container">
+
+  <!-- Workout Info -->
   <mat-card-header>
-  <mat-card-title class="date">Workout - {{ today }}</mat-card-title>
-    <!-- <mat-card-subtitle class="date"></mat-card-subtitle> -->
+    <mat-card-title class="date">Workout - {{ today }}</mat-card-title>
   </mat-card-header>
+
   <mat-card-content class="daily-workout-content">
+
+    <!-- Skill Section -->
     <mat-card class="skill-card bg-color3">
       <mat-card-title class="title">Skill :</mat-card-title>
       <mat-card-content>
         <div class="daily-workout-board">
           <p>5x5 Strict Pullups</p>
           <p>3 x 1 Planks (1 min)</p>
-          <p></p>
+          <p>BENCH!</p>
         </div>
       </mat-card-content>
     </mat-card>
-      <mat-card class="wod-card bg-color3">
-        <mat-card-title class="title">
-          <span>Wod : </span>
-          <span *ngIf="isWod" [ngClass]="{ 'color2': isWod }">FRAN</span>
-        </mat-card-title>
-        <mat-card-content>
-          <div class="daily-workout-board">
-            <p>21-15-9</p>
-            <p>Thrusters @ 95#</p>
-            <p>Pull-ups</p>
-          </div>
-        </mat-card-content>
-      </mat-card>
+
+      <!-- WOD Section -->
+    <mat-card class="wod-card bg-color3">
+      <mat-card-title class="title flex">
+        <div>Wod : </div>
+        <div *ngIf="isWod" [ngClass]="{ 'color2': isWod }">FRAN</div>
+      </mat-card-title>
+      <mat-card-content>
+        <div class="daily-workout-board">
+          <p>21-15-9</p>
+          <p>Thrusters @ 95#</p>
+          <p>Pull-ups</p>
+        </div>
+      </mat-card-content>
+    </mat-card>
   </mat-card-content>
+
 </mat-card>

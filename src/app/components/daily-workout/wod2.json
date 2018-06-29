@@ -1,0 +1,29 @@
+{
+  "completion": "20",
+  "movements": [
+    {
+      "name": "pull-up",
+      "reps": 5
+    },
+    {
+      "name": "push-up",
+      "reps": 10
+    },
+    {
+      "name": "squat",
+      "reps": 15
+    }
+  ],
+  "top_records": {
+    "first": {
+      "score": "17",
+      "username": "dsvene"
+    },
+    "second": {
+      "score": "21",
+      "username": "zjhamm"
+    }
+  },
+  "type": "reps",
+  "wodName": "Cindy"
+}

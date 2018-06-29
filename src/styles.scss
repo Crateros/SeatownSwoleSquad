@@ -4,7 +4,7 @@
 @import '~@angular/material/prebuilt-themes/indigo-pink.css';
 
 // Color variables
-@import 'app/styles/_variables';
+@import 'app/styles/_colors';
 
 /* Custom fonts */
 @font-face {
@@ -73,6 +73,19 @@
   align-items: center;
 }
 
+.center {
+  margin: 0 auto;
+}
+
+.full {
+  width: 100%;
+}
+
+.half {
+  width: 50%;
+}
+
+// Colors
 .color1 {
   color: $color1;
 }

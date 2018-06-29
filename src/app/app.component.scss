@@ -1,5 +1,3 @@
-@import '../app/styles/_variables';
-
 .example-small-box,
 .example-large-box {
   display: flex;
@@ -11,7 +9,7 @@
 }
 
 .example-small-box {
-  height: 100px;
+  // height: 100px;
   width: 100px;
 }
 
@@ -31,7 +29,7 @@
 
 .footer-container {
   font-family: 'Bangers';
-  color: $color8;
+  // color: $color8;
   justify-content: space-between;
 
   .footer-logo {
@@ -49,8 +47,6 @@
     padding-right: 2rem;
   }
 }
-
-
 
 .app-name-container {
   justify-content: center;
@@ -98,18 +94,6 @@
 .accent-bar-small {
   height: 0.5rem;
   width: 20rem;
-}
-
-.center {
-  margin: 0 auto;
-}
-
-.full {
-  width: 100%;
-}
-
-.half {
-  width: 50%;
 }
 
 .right-round {

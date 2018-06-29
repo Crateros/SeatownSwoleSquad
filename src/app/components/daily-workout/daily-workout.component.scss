@@ -1,12 +1,19 @@
 @import '../../styles/_variables';
 
 .daily-workout-container {
-  width: 50%;
+  width: 50vw;
   margin: 0 auto;
+  box-shadow: none !important;
 
-  .title {
+  .title,
+  .date {
     text-transform: uppercase;
+    text-align: left;
+  }
+
+  .date {
     font-family: 'Bangers';
+    font-size: 2rem;
   }
 
   .daily-workout-content {
@@ -15,15 +22,25 @@
   }
 
   .skill-card, .wod-card {
-    font-family: 'PermanentMarker';
+    // font-family: 'PermanentMarker';
+    font-family: 'BoardMarker';
     margin: 0 auto;
     width: 45%;
     color: black;
     background-color: $color3;
+    text-align: center;
+  }
+
+  .skill-card {
+    margin-right: 1rem;
   }
 
   .daily-workout-board {
-    font-size: 1.5rem;
+    font-size: 2rem;
+  }
+
+  .color2 {
+    color: $color2;
   }
 
 }

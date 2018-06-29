@@ -4,7 +4,6 @@
 @import '~@angular/material/prebuilt-themes/indigo-pink.css';
 
 /* Custom fonts */
-
 @font-face {
   font-family: 'PermanentMarker';
   src: url('./assets/fonts/PermanentMarker-Regular.ttf');
@@ -18,6 +17,26 @@
 @font-face {
   font-family: 'Bangers';
   src: url('./assets/fonts/Bangers-Regular.ttf');
+  font-weight: normal;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-shadow: rgba(0, 0, 0, .01) 0 0 1px;
+}
+
+@font-face {
+  font-family: 'Exposition';
+  src: url('./assets/fonts/Exposition.ttf');
+  font-weight: normal;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-shadow: rgba(0, 0, 0, .01) 0 0 1px;
+}
+
+@font-face {
+  font-family: 'BoardMarker';
+  src: url('./assets/fonts/BoardMarker.ttf');
   font-weight: normal;
   font-style: normal;
   -webkit-font-smoothing: antialiased;

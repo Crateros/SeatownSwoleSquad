@@ -7,8 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DailyWorkoutComponent implements OnInit {
 
-  options: Object = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+  options: Object = { weekday: 'long', month: 'long', day: 'numeric' };
   today: String = new Date().toLocaleDateString('en-us', this.options);
+  isWod: Boolean = true;
 
   constructor() { }
 

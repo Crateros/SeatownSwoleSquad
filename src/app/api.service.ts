@@ -19,11 +19,8 @@ export class ApiService {
 
   data = {};
   title = 'app';
-  getURL = 'https://dlt8hc5cfl.execute-api.us-west-2.amazonaws.com/dev/user/Talia';
 
-// this.http.get(this.getURL).subscribe(
-//   response => this.data = response,
-//   error => console.log('Error: ', error)
-// );
-// console.log(this.data);
+  get(url) {
+    return this.http.get(url);
+  }
 }

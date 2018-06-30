@@ -9,22 +9,18 @@ import { UserStatsService } from './../../services/user-stats-service/user-stats
 })
 export class UserStatsComponent implements OnInit {
 
+  user: Object = {};
+
   constructor(
     private userStatsService: UserStatsService
   ) { }
 
-  ngOnInit() {
-    this.getUserStats();
-  }
+  ngOnInit() {}
 
   getUserStats() {
-    const serviceResponse = this.userStatsService.getUserStats();
-    console.log(serviceResponse);
-    // this.http.get(this.getURL).subscribe(
-    //   response => this.data = response,
-    //   error => console.log('Error: ', error)
-    // );
-    // console.log(this.data);
+    this.userStatsService.getUserStats()
+    .subscribe(data => {
+      this.user = data;
+    });
   }
-
 }

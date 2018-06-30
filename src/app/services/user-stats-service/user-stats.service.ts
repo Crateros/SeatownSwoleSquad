@@ -1,14 +1,21 @@
 import { Injectable } from '@angular/core';
+import { ApiService } from '../../api.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserStatsService {
 
-  constructor() { }
+  getURL = 'https://dlt8hc5cfl.execute-api.us-west-2.amazonaws.com/beta/user/Talia';
+
+  constructor(
+    private api: ApiService
+  ) { }
 
   getUserStats() {
-    const response = 'Getting stats';
-    return response;
+    return this.api.get(this.getURL);
+    // .subscribe(data => {
+      // console.log('data in service: ', data);
+      // return data;
   }
 }

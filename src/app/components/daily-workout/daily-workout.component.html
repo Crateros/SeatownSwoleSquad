@@ -23,13 +23,12 @@
     <mat-card class="wod-card bg-color3">
       <mat-card-title class="title flex">
         <div>Wod : </div>
-        <div *ngIf="isWod" [ngClass]="{ 'color2': isWod }">FRAN</div>
+        <div *ngIf="isWod" [ngClass]="{ 'color2': isWod }">{{ wod.name }}</div>
       </mat-card-title>
       <mat-card-content>
         <div class="daily-workout-board">
-          <p>21-15-9</p>
-          <p>Thrusters @ 95#</p>
-          <p>Pull-ups</p>
+          <p *ngIf="wod.completion">{{ wod.completion.amount }}</p>
+          <p *ngFor="let movement of wod.movements">{{ movement.name }} @ {{ movement.bodyWeight }}x bodyweight</p>
         </div>
       </mat-card-content>
     </mat-card>

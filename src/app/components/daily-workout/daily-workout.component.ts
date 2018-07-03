@@ -10,14 +10,15 @@ export class DailyWorkoutComponent implements OnInit {
   @Input()
   enableEditing: Boolean = false;
 
+  // Locals
   dateOptions: Object = { weekday: 'long', month: 'long', day: 'numeric' };
   today: String = new Date().toLocaleDateString('en-us', this.dateOptions);
-
   isWod: Boolean = false;
+  editingWodSection: Boolean = false;
+  editingSkillSection: Boolean = false;
   wod: Object = {};
-
-  skillDescriptionArray = [];
   wodDescriptionArray = [];
+  skillDescriptionArray = [];
 
   constructor() { }
 

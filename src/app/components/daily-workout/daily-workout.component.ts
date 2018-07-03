@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-daily-workout',
@@ -7,15 +7,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DailyWorkoutComponent implements OnInit {
 
-  options: Object = { weekday: 'long', month: 'long', day: 'numeric' };
-  today: String = new Date().toLocaleDateString('en-us', this.options);
-  isWod: Boolean = true;
+  @Input()
+  enableEditing: Boolean = false;
+
+  dateOptions: Object = { weekday: 'long', month: 'long', day: 'numeric' };
+  today: String = new Date().toLocaleDateString('en-us', this.dateOptions);
+
+  isWod: Boolean = false;
   wod: Object = {};
+
+  skillDescriptionArray = [];
+  wodDescriptionArray = [];
 
   constructor() { }
 
   ngOnInit() {
     this.getMockWorkout();
+    this.getMockSkill();
   }
 
   getMockWorkout() {
@@ -23,8 +31,27 @@ export class DailyWorkoutComponent implements OnInit {
       return response.json();
     }).then((data) => {
       this.wod = data;
-      console.log(this.wod);
+      this.isWod = Object.keys(this.wod).length > 0;
+      this.wodDescriptionArray = data.description.split('\n');
     });
   }
+
+  getMockSkill() {
+    fetch('assets/mock-data/skill.json').then((response) => {
+      return response.json();
+    }).then((data) => {
+      this.skillDescriptionArray = data.description.split('\n');
+    });
+  }
+
+  updateWodDescription(description) {
+    this.wodDescriptionArray = description.split('\n');
+  }
+
+  updateSkillDescription(description) {
+    this.skillDescriptionArray = description.split('\n');
+  }
+
+
 
 }

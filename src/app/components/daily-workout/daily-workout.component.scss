@@ -15,6 +15,10 @@
     font-size: 2rem;
   }
 
+  .wod-title-spacer {
+    flex-grow: 0.25;
+  }
+
   .daily-workout-content {
     display: flex;
     justify-content: space-evenly;

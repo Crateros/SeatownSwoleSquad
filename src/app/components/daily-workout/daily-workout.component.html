@@ -2,7 +2,16 @@
 
   <!-- Workout Info -->
   <mat-card-header>
-    <mat-card-title class="date">Workout - {{ today }}</mat-card-title>
+    <mat-card-title class="date flex">
+      <div class="flex">
+        <div>Workout - {{ today }}</div>
+        <button
+          mat-button
+          *ngIf="enableEditing === true"
+          (click)="editingSkillSection = true; editingWodSection = true">Edit
+        </button>
+      </div>
+    </mat-card-title>
   </mat-card-header>
 
   <mat-card-content class="daily-workout-content">
@@ -10,28 +19,80 @@
     <!-- Skill Section -->
     <mat-card class="skill-card bg-color3">
       <mat-card-title class="title">Skill :</mat-card-title>
-      <mat-card-content>
+      <mat-card-content *ngIf="!editingSkillSection">
         <div class="daily-workout-board">
-          <p>5x5 Strict Pullups</p>
-          <p>3 x 1 Planks (1 min)</p>
-          <p>BENCH!</p>
+          <p *ngFor="let description of skillDescriptionArray">{{ description }}</p>
         </div>
+      </mat-card-content>
+      <mat-card-content *ngIf="editingSkillSection">
+        <div *ngIf="editingSkillSection">
+          <mat-form-field>
+            <mat-label>Edit Skill Section</mat-label>
+            <textarea
+              matInput
+              [(ngModel)]="dailySkillDescriptionUpdate"
+              cdkTextareaAutosize
+              #autosize="cdkTextareaAutosize"
+              cdkAutosizeMinRows="1"
+              cdkAutosizeMaxRows="7"
+              placeholder="Skill text goes here...">
+            </textarea>
+          </mat-form-field>
+        </div>
+        <button
+          mat-button
+          *ngIf="editingSkillSection === true"
+          (click)="updateSkillDescription(dailySkillDescriptionUpdate); editingSkillSection = false">Update
+        </button>
+        <button
+          mat-button
+          *ngIf="editingSkillSection === true"
+          (click)="editingSkillSection = false">Cancel
+        </button>
       </mat-card-content>
     </mat-card>
 
       <!-- WOD Section -->
     <mat-card class="wod-card bg-color3">
-      <mat-card-title class="title flex">
-        <div>Wod : </div>
-        <div *ngIf="isWod" [ngClass]="{ 'color2': isWod }">{{ wod.name }}</div>
+      <mat-card-title class="title">
+        <div class="flex">
+          <div class="wod-title-spacer">Wod :&nbsp;</div>
+          <div *ngIf="isWod" [ngClass]="{ 'color2': isWod }">{{ wod.name }}</div>
+        </div>
       </mat-card-title>
-      <mat-card-content>
-        <div class="daily-workout-board">
-          <p *ngIf="wod.completion">{{ wod.completion.amount }}</p>
-          <p *ngFor="let movement of wod.movements">{{ movement.name }} @ {{ movement.bodyWeight }}x bodyweight</p>
+      <mat-card-content *ngIf="!editingWodSection">
+        <div class="daily-workout-board" *ngIf="isWod">
+          <p *ngFor="let description of wodDescriptionArray">{{ description }}</p>
         </div>
       </mat-card-content>
+      <mat-card-content *ngIf="editingWodSection">
+        <div *ngIf="editingWodSection">
+          <mat-form-field>
+            <mat-label>Edit Wod Section</mat-label>
+            <textarea
+              matInput
+              [(ngModel)]="dailyWodDescriptionUpdate"
+              cdkTextareaAutosize
+              #autosize="cdkTextareaAutosize"
+              cdkAutosizeMinRows="1"
+              cdkAutosizeMaxRows="7"
+              placeholder="Wod text goes here...">
+            </textarea>
+          </mat-form-field>
+        </div>
+        <button
+          mat-button
+          *ngIf="editingWodSection === true"
+          (click)="updateWodDescription(dailyWodDescriptionUpdate); editingWodSection = false">Update
+        </button>
+        <button
+          mat-button
+          *ngIf="editingWodSection === true"
+          (click)="editingWodSection = false">Cancel
+        </button>
+      </mat-card-content>
     </mat-card>
+
   </mat-card-content>
 
 </mat-card>

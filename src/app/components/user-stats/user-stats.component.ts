@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserStatsService } from './../../services/user-stats-service/user-stats.service';
 
-
 @Component({
   selector: 'app-user-stats',
   templateUrl: './user-stats.component.html',

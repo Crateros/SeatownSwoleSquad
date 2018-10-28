@@ -7,10 +7,11 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class DailyWorkoutComponent implements OnInit {
 
+  // Input variables
   @Input()
   enableEditing: Boolean = false;
 
-  // Locals
+  // Local variables
   dateOptions: Object = { weekday: 'long', month: 'long', day: 'numeric' };
   today: String = new Date().toLocaleDateString('en-us', this.dateOptions);
   isWod: Boolean = false;

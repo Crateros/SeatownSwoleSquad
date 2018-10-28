@@ -11,6 +11,7 @@ import { DailyWorkoutComponent } from './components/daily-workout/daily-workout.
 import { UserAlertsComponent } from './components/user-alerts/user-alerts.component';
 import { UserStatsComponent } from './components/user-stats/user-stats.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
+import { PodiumComponent } from './components/podium/podium.component';
 
 // Services
 import { ApiService } from './api.service';
@@ -22,7 +23,8 @@ import { UserStatsService } from './services/user-stats-service/user-stats.servi
     DailyWorkoutComponent,
     UserAlertsComponent,
     UserStatsComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    PodiumComponent
   ],
   imports: [
     BrowserModule,

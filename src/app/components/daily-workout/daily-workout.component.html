@@ -10,6 +10,11 @@
           *ngIf="enableEditing === true"
           (click)="editingSkillSection = true; editingWodSection = true">Edit
         </button>
+        <button
+          mat-button
+          (click)="getDailyWorkout()"
+        >
+        </button>
       </div>
     </mat-card-title>
   </mat-card-header>
@@ -57,12 +62,13 @@
       <mat-card-title class="title">
         <div class="flex">
           <div class="wod-title-spacer">Wod :&nbsp;</div>
-          <div *ngIf="isWod" [ngClass]="{ 'color2': isWod }">{{ wod.name }}</div>
+          <div *ngIf="isWod" [ngClass]="{ 'color2': isWod }">{{ wod.workoutName }}</div>
+          <div *ngIf="!isWod">{{ wod.workoutName }}</div>
         </div>
       </mat-card-title>
       <mat-card-content *ngIf="!editingWodSection">
-        <div class="daily-workout-board" *ngIf="isWod">
-          <p *ngFor="let description of wodDescriptionArray">{{ description }}</p>
+        <div class="daily-workout-board">
+          <p *ngFor="let description of wod.workoutDescriptionArray">{{ description }}</p>
         </div>
       </mat-card-content>
       <mat-card-content *ngIf="editingWodSection">

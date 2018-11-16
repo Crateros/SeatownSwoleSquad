@@ -1,21 +1,14 @@
 <mat-card class="daily-workout-container">
 
   <!-- Workout Info -->
-  <mat-card-header>
-    <mat-card-title class="date flex">
-      <div class="flex">
-        <div>Workout - {{ today }}</div>
-        <button
+  <mat-card-header class="date">
+    <mat-card-title>
+      <div>{{ today }}</div>
+        <!-- <button
           mat-button
           *ngIf="enableEditing === true"
           (click)="editingSkillSection = true; editingWodSection = true">Edit
-        </button>
-        <button
-          mat-button
-          (click)="getDailyWorkout()"
-        >
-        </button>
-      </div>
+        </button> -->
     </mat-card-title>
   </mat-card-header>
 
@@ -26,10 +19,10 @@
       <mat-card-title class="title">Skill :</mat-card-title>
       <mat-card-content *ngIf="!editingSkillSection">
         <div class="daily-workout-board">
-          <p *ngFor="let description of skillDescriptionArray">{{ description }}</p>
+          <p *ngFor="let description of wod.skillDescriptionArray">{{ description }}</p>
         </div>
       </mat-card-content>
-      <mat-card-content *ngIf="editingSkillSection">
+      <!-- <mat-card-content *ngIf="editingSkillSection">
         <div *ngIf="editingSkillSection">
           <mat-form-field>
             <mat-label>Edit Skill Section</mat-label>
@@ -54,7 +47,7 @@
           *ngIf="editingSkillSection === true"
           (click)="editingSkillSection = false">Cancel
         </button>
-      </mat-card-content>
+      </mat-card-content> -->
     </mat-card>
 
       <!-- WOD Section -->
@@ -83,6 +76,18 @@
               cdkAutosizeMinRows="1"
               cdkAutosizeMaxRows="7"
               placeholder="Wod text goes here...">
+            </textarea>
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Edit Skill Section</mat-label>
+            <textarea
+              matInput
+              [(ngModel)]="dailySkillDescriptionUpdate"
+              cdkTextareaAutosize
+              #autosize="cdkTextareaAutosize"
+              cdkAutosizeMinRows="1"
+              cdkAutosizeMaxRows="7"
+              placeholder="Skill text goes here...">
             </textarea>
           </mat-form-field>
         </div>

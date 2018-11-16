@@ -1,18 +1,30 @@
+
 .daily-workout-container {
   width: 80vw;
   margin: 0 auto;
   box-shadow: none !important;
 
-  .title,
-  .date {
+  * {
+    font-size: 1.5rem;
+
+    @media screen and (min-width: 675px) {
+      font-size: 2rem;
+    }
+  }
+
+  .title {
     text-transform: uppercase;
     text-align: left;
-    font-size: 2rem;
   }
 
   .date {
     font-family: 'Bangers';
-    font-size: 2rem;
+    justify-content: center;
+
+    @media screen and (min-width: 675px) {
+      font-size: 2rem;
+      justify-content: start;
+    }
   }
 
   .wod-title-spacer {
@@ -22,21 +34,36 @@
   .daily-workout-content {
     display: flex;
     justify-content: space-evenly;
+    flex-direction: column;
+
+    @media screen and (min-width: 675px) {
+      flex-direction: row;
+      justify-content: center;
+    }
   }
 
   .skill-card, .wod-card {
     font-family: 'BoardMarker';
     margin: 0 auto;
-    width: 45%;
+    width: 90%;
     color: black;
     text-align: center;
+
+    @media screen and (min-width: 675px) {
+      width: 45%;
+    }
   }
 
   .skill-card {
-    margin-right: 1rem;
+    margin-bottom: 1rem;
+
+    @media screen and (min-width: 675px) {
+      margin-right: 1rem;
+      margin-bottom: 0;
+    }
   }
 
   .daily-workout-board {
-    font-size: 2rem;
+
   }
 }

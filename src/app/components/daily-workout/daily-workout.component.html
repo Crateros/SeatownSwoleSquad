@@ -1,109 +1,28 @@
-<mat-card class="daily-workout-container">
 
-  <!-- Workout Info -->
-  <mat-card-header class="date">
-    <mat-card-title>
-      <div>{{ today }}</div>
-        <!-- <button
-          mat-button
-          *ngIf="enableEditing === true"
-          (click)="editingSkillSection = true; editingWodSection = true">Edit
-        </button> -->
-    </mat-card-title>
-  </mat-card-header>
-
-  <mat-card-content class="daily-workout-content">
-
-    <!-- Skill Section -->
-    <mat-card class="skill-card bg-color3">
-      <mat-card-title class="title">Skill :</mat-card-title>
-      <mat-card-content *ngIf="!editingSkillSection">
-        <div class="daily-workout-board">
-          <p *ngFor="let description of wod.skillDescriptionArray">{{ description }}</p>
-        </div>
-      </mat-card-content>
-      <!-- <mat-card-content *ngIf="editingSkillSection">
-        <div *ngIf="editingSkillSection">
-          <mat-form-field>
-            <mat-label>Edit Skill Section</mat-label>
-            <textarea
-              matInput
-              [(ngModel)]="dailySkillDescriptionUpdate"
-              cdkTextareaAutosize
-              #autosize="cdkTextareaAutosize"
-              cdkAutosizeMinRows="1"
-              cdkAutosizeMaxRows="7"
-              placeholder="Skill text goes here...">
-            </textarea>
-          </mat-form-field>
-        </div>
-        <button
-          mat-button
-          *ngIf="editingSkillSection === true"
-          (click)="updateSkillDescription(dailySkillDescriptionUpdate); editingSkillSection = false">Update
-        </button>
-        <button
-          mat-button
-          *ngIf="editingSkillSection === true"
-          (click)="editingSkillSection = false">Cancel
-        </button>
-      </mat-card-content> -->
-    </mat-card>
-
-      <!-- WOD Section -->
-    <mat-card class="wod-card bg-color3">
-      <mat-card-title class="title">
-        <div class="flex">
-          <div class="wod-title-spacer">Wod :&nbsp;</div>
-          <div *ngIf="isWod" [ngClass]="{ 'color2': isWod }">{{ wod.workoutName }}</div>
-          <div *ngIf="!isWod">{{ wod.workoutName }}</div>
-        </div>
-      </mat-card-title>
-      <mat-card-content *ngIf="!editingWodSection">
-        <div class="daily-workout-board">
-          <p *ngFor="let description of wod.workoutDescriptionArray">{{ description }}</p>
-        </div>
-      </mat-card-content>
-      <mat-card-content *ngIf="editingWodSection">
-        <div *ngIf="editingWodSection">
-          <mat-form-field>
-            <mat-label>Edit Wod Section</mat-label>
-            <textarea
-              matInput
-              [(ngModel)]="dailyWodDescriptionUpdate"
-              cdkTextareaAutosize
-              #autosize="cdkTextareaAutosize"
-              cdkAutosizeMinRows="1"
-              cdkAutosizeMaxRows="7"
-              placeholder="Wod text goes here...">
-            </textarea>
-          </mat-form-field>
-          <mat-form-field>
-            <mat-label>Edit Skill Section</mat-label>
-            <textarea
-              matInput
-              [(ngModel)]="dailySkillDescriptionUpdate"
-              cdkTextareaAutosize
-              #autosize="cdkTextareaAutosize"
-              cdkAutosizeMinRows="1"
-              cdkAutosizeMaxRows="7"
-              placeholder="Skill text goes here...">
-            </textarea>
-          </mat-form-field>
-        </div>
-        <button
-          mat-button
-          *ngIf="editingWodSection === true"
-          (click)="updateWodDescription(dailyWodDescriptionUpdate); editingWodSection = false">Update
-        </button>
-        <button
-          mat-button
-          *ngIf="editingWodSection === true"
-          (click)="editingWodSection = false">Cancel
-        </button>
-      </mat-card-content>
-    </mat-card>
-
-  </mat-card-content>
-
-</mat-card>
+<div class="daily-workout-container flex justify-space-between align-center">
+  <button
+    mat-fab
+    class="workout-toggle"
+    (click)="updateCurrentWorkoutDisplay('left')"
+    [disabled]="currentWorkoutDisplay >= 6"
+  >
+    <img src="../../../assets/images/arrow_left.svg" alt="left arrow">
+  </button>
+  <app-transition-slider class="daily-workout" [activePane]="currentWorkoutDisplay">
+    <app-workout-display [workout]="recentWorkouts[0]" class="daily-workout-container" id="workout_0"></app-workout-display>
+    <app-workout-display [workout]="recentWorkouts[1]" class="daily-workout-container" id="workout_1"></app-workout-display>
+    <app-workout-display [workout]="recentWorkouts[2]" class="daily-workout-container" id="workout_2"></app-workout-display>
+    <app-workout-display [workout]="recentWorkouts[3]" class="daily-workout-container" id="workout_3"></app-workout-display>
+    <app-workout-display [workout]="recentWorkouts[4]" class="daily-workout-container" id="workout_4"></app-workout-display>
+    <app-workout-display [workout]="recentWorkouts[5]" class="daily-workout-container" id="workout_5"></app-workout-display>
+    <app-workout-display [workout]="recentWorkouts[6]" class="daily-workout-container" id="workout_6"></app-workout-display>
+  </app-transition-slider>
+  <button
+    mat-fab
+    class="workout-toggle"
+    (click)="updateCurrentWorkoutDisplay('right')"
+    [disabled]="currentWorkoutDisplay < 1"
+  >
+    <img src="../../../assets/images/arrow_right.svg" alt="left arrow">
+  </button>
+</div>

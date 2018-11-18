@@ -1,28 +1,45 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnChanges } from '@angular/core';
 
 @Component({
   selector: 'app-daily-workout',
   templateUrl: './daily-workout.component.html',
   styleUrls: ['./daily-workout.component.scss']
 })
-export class DailyWorkoutComponent implements OnInit {
+export class DailyWorkoutComponent implements OnInit, OnChanges {
 
   // Input variables
   @Input()
   enableEditing: Boolean = false;
 
   // Local variables
-  dateOptions: Object = { weekday: 'long', month: 'long', day: 'numeric' };
-  today: String = new Date().toLocaleDateString('en-us', this.dateOptions);
+  recentWorkouts: any = [];
   editingWodSection: Boolean = false;
   editingSkillSection: Boolean = false;
+  currentWorkoutDisplay = 0;
   wod: any = {};
 
-  constructor() {}
+  constructor() {
+    const dateOptions = { weekday: 'long', month: 'long', day: 'numeric' };
+
+    // Get the past week as date strings
+    for (let i = 0; i <= 6; i++) {
+      const dateInfo = {};
+      const date = new Date();
+      date.setDate(date.getDate() - i);
+      const dateDisplay = date.toLocaleDateString('en-us', dateOptions);
+      const dateString = date.toISOString().slice(0, 10);
+      dateInfo['formattedDate'] = dateDisplay;
+      dateInfo['dateParam'] = dateString;
+      this.recentWorkouts.push(dateInfo);
+    }
+    console.log(this.recentWorkouts);
+  }
 
   ngOnInit() {
-    this.getDailyWorkout();
+    // this.getDailyWorkout();
   }
+
+  ngOnChanges() {}
 
   getDailyWorkout() {
     const pathParameter = new Date().toISOString().slice(0, 10);
@@ -52,6 +69,15 @@ export class DailyWorkoutComponent implements OnInit {
       .then(function (myJson) {
         this.formatWorkout(myJson);
       });
+  }
+
+  updateCurrentWorkoutDisplay(direction) {
+    if (direction === 'left') {
+      this.currentWorkoutDisplay += 1;
+    } else if (direction === 'right') {
+      this.currentWorkoutDisplay -= 1;
+    }
+    console.log(this.currentWorkoutDisplay);
   }
 
   createDailyWorkout() {

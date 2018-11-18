@@ -11,6 +11,7 @@ interface UserStats {
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  isLeftvisible = true;
 
   constructor() { }
 

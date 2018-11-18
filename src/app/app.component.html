@@ -30,9 +30,13 @@
       <img class="kettlebell" src="../assets/images/weight.svg" alt="kettlebell">
     </ng-template>
     <div class="example-large-box mat-elevation-z4">
-      <app-daily-workout
-        [enableEditing]="true">
-      </app-daily-workout>
+      <!-- <button mat-fab (click)="currentWorkoutDisplay = '0'">
+        <img src="../assets/images/arrow_left.svg" alt="left arrow">
+      </button> -->
+      <app-daily-workout [enableEditing]="true"></app-daily-workout>
+      <!-- <button mat-fab (click)="currentWorkoutDisplay = '1'">
+        <img src="../assets/images/arrow_right.svg" alt="right arrow">
+      </button> -->
     </div>
   </mat-tab>
 

@@ -1,4 +1,11 @@
-<button mat-button (click)="getUserStats()">Click me!</button>
-<div>
-  <pre>{{ user | json }}</pre>
+<div class="user-stats-table">
+  <mat-tree
+    [dataSource]="data"
+    [treeControl]="treeControl"
+  >
+    <mat-tree-node *matTreeNodeDef="let node" matTreeNodeToggle matTreeNodePadding>
+      <button mat-icon-button disabled></button>
+      {{node.filename}} : {{node.type}}
+    </mat-tree-node>
+  </mat-tree>
 </div>

@@ -1,11 +1,11 @@
-import { Component, OnInit, Input, OnChanges } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-daily-workout',
   templateUrl: './daily-workout.component.html',
   styleUrls: ['./daily-workout.component.scss']
 })
-export class DailyWorkoutComponent implements OnInit, OnChanges {
+export class DailyWorkoutComponent implements OnInit {
 
   // Input variables
   @Input()
@@ -13,9 +13,9 @@ export class DailyWorkoutComponent implements OnInit, OnChanges {
 
   // Local variables
   recentWorkouts: any = [];
-  editingWodSection: Boolean = false;
-  editingSkillSection: Boolean = false;
-  currentWorkoutDisplay = 0;
+  workoutDisplayIndex = 0;
+  currentWorkoutDisplay = '0';
+  workoutDisplayArray: Array<string> = ['0', '1', '2', '3', '4', '5', '6'];
   wod: any = {};
 
   constructor() {
@@ -27,19 +27,14 @@ export class DailyWorkoutComponent implements OnInit, OnChanges {
       const date = new Date();
       date.setDate(date.getDate() - i);
       const dateDisplay = date.toLocaleDateString('en-us', dateOptions);
-      const dateString = date.toISOString().slice(0, 10);
       dateInfo['formattedDate'] = dateDisplay;
-      dateInfo['dateParam'] = dateString;
       this.recentWorkouts.push(dateInfo);
     }
-    console.log(this.recentWorkouts);
   }
 
   ngOnInit() {
     // this.getDailyWorkout();
   }
-
-  ngOnChanges() {}
 
   getDailyWorkout() {
     const pathParameter = new Date().toISOString().slice(0, 10);
@@ -71,50 +66,18 @@ export class DailyWorkoutComponent implements OnInit, OnChanges {
       });
   }
 
-  updateCurrentWorkoutDisplay(direction) {
+  slideWorkoutDisplay(direction) {
     if (direction === 'left') {
-      this.currentWorkoutDisplay += 1;
+      this.workoutDisplayIndex += 1;
     } else if (direction === 'right') {
-      this.currentWorkoutDisplay -= 1;
+      this.workoutDisplayIndex -= 1;
     }
-    console.log(this.currentWorkoutDisplay);
-  }
-
-  createDailyWorkout() {
-    const url = 'https://dlt8hc5cfl.execute-api.us-west-2.amazonaws.com/Devo/workout/';
-    const data = {
-      'workoutDate': new Date().toISOString().slice(0, 10),
-      'skillDescription': '5x5 Bench\n1RM Bench\n10 Jump Squats',
-      'workoutDescription': 'Pushups\nPullups\nSitups Bitch!',
-      'workoutName': 'Zach Gets Jacked',
-      'isWod': false
-    };
-
-    return fetch(url, {
-      method: 'POST',
-      mode: 'no-cors',
-      cache: 'no-cache',
-      credentials: 'omit',
-      headers: {
-        'Content-Type': 'application/x-amz-json-1.0; charset=utf-8'
-      },
-      redirect: 'follow',
-      referrer: 'no-referrer',
-      body: JSON.stringify(data)
-    })
-    .then(response => response.json())
-    .catch(error => console.error('Error creating workout: ', error));
+    this.currentWorkoutDisplay = this.workoutDisplayArray[this.workoutDisplayIndex];
   }
 
   formatWorkout(workout) {
     this.wod = (<any>Object).assign(this.wod, workout);
     this.wod.workoutDescriptionArray = this.wod.workoutDescription.split(/\n/);
     this.wod.skillDescriptionArray = this.wod.skillDescription.split(/\n/);
-  }
-
-  updateWodDescription(description) {
-  }
-
-  updateSkillDescription(description) {
   }
 }

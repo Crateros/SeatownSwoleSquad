@@ -2,7 +2,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './modules/material/material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
@@ -15,6 +14,7 @@ import { UserStatsComponent } from './components/user-stats/user-stats.component
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { PodiumComponent } from './components/podium/podium.component';
 import { TransitionSliderComponent } from './components/transition-slider/transition-slider.component';
+import { EditWorkoutComponent } from './components/edit-workout/edit-workout.component';
 
 // Services
 import { ApiService } from './api.service';
@@ -29,19 +29,19 @@ import { UserStatsService } from './services/user-stats-service/user-stats.servi
     UserProfileComponent,
     PodiumComponent,
     TransitionSliderComponent,
-    WorkoutDisplayComponent
+    WorkoutDisplayComponent,
+    EditWorkoutComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    BrowserAnimationsModule,
     MaterialModule,
     FormsModule,
     ReactiveFormsModule
   ],
   providers: [
     ApiService,
-    UserStatsService
+    UserStatsService,
   ],
   bootstrap: [AppComponent]
 })

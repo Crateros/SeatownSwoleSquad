@@ -7,16 +7,24 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule, MatCheckboxModule } from '@angular/material';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatInputModule } from '@angular/material/input';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatTreeModule } from '@angular/material/tree';
 
 @NgModule({
   imports: [
-    CommonModule,
+  CommonModule,
     BrowserAnimationsModule,
     MatCardModule,
     MatButtonModule,
     MatCheckboxModule,
     MatTabsModule,
-    MatInputModule
+    MatInputModule,
+    MatExpansionModule,
+    MatButtonToggleModule,
+    MatSnackBarModule,
+    MatTreeModule,
   ],
   exports: [
     BrowserAnimationsModule,
@@ -24,7 +32,11 @@ import { MatInputModule } from '@angular/material/input';
     MatButtonModule,
     MatCheckboxModule,
     MatTabsModule,
-    MatInputModule
+    MatInputModule,
+    MatExpansionModule,
+    MatButtonToggleModule,
+    MatSnackBarModule,
+    MatTreeModule,
   ],
   declarations: []
 })

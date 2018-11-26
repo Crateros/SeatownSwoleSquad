@@ -1,0 +1,60 @@
+{
+  "Lifts": {
+    "Clean": {
+      "Clean & Jerk": "",
+      "Power": "",
+      "Hang": ""
+    },
+    "Snatch": {
+      "Regular": "",
+      "Power": "",
+      "Hang": ""
+    },
+    "Squat": {
+      "Regular": "",
+      "Overhead": ""
+    },
+    "Deadlift": "",
+    "Press": {
+      "Strict": "",
+      "Push": "",
+      "Jerk": ""
+    },
+    "Benchpress": "",
+    "Bear Complex": ""
+  },
+  "Benchmarks": {
+    "The Girls": {
+      "Amanda": "",
+      "Annie": "",
+      "Angie": "",
+      "Barbara": "",
+      "Chelsea": "",
+      "Christine": "",
+      "Cindy": "",
+      "Diane": "",
+      "Elizabeth": "",
+      "Eva": "",
+      "Fran": "",
+      "Grace": "",
+      "Gwen": "",
+      "Helen": "",
+      "Isabel": "",
+      "Jackie": "",
+      "Karen": "",
+      "Kelly": "",
+      "Linda": "",
+      "Lynne": "",
+      "Maggie": "",
+      "Mary": "",
+      "Nancy": "",
+      "Nasty Girls": "",
+      "Nicole": ""
+    },
+    "The Heroes": {
+      "Muprh": "",
+      "DT": "",
+      "Lumberjack 20": ""
+    }
+  }
+}

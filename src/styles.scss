@@ -137,7 +137,18 @@ body {
   }
 }
 
-// CSS Chunks
+mat-expansion-panel-header {
+  .mat-content {
+    overflow: visible;
+  }
+}
+
+.mat-ripple-element {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/////////////// CSS Chunks ///////////////
+//Displays & Alignments
 .flex {
   display: flex;
 }
@@ -164,6 +175,40 @@ body {
 
 .half {
   width: 50%;
+}
+
+.gutters {
+  margin: 0 1rem;
+}
+
+// Fonts
+.bangers {
+  font-family: 'Bangers';
+}
+
+.board-marker {
+  font-family: 'BoardMarker';
+}
+
+.permanent-marker {
+  font-family: 'PermanentMarker'
+}
+
+// Font sizes
+.font-small {
+  font-size: 1.5rem;
+}
+
+.font-medium {
+  font-size: 2rem;
+}
+
+.font-large {
+  font-size: 3rem;
+}
+
+.font-extra-large {
+  font-size: 4rem;
 }
 
 // Colors

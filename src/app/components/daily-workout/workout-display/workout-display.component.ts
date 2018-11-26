@@ -13,8 +13,6 @@ export class WorkoutDisplayComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
-    console.log(this.workout);
-  }
+  ngOnInit() {}
 
 }

@@ -3,7 +3,7 @@
   <button
     mat-fab
     class="workout-toggle"
-    (click)="updateCurrentWorkoutDisplay('left')"
+    (click)="slideWorkoutDisplay('left')"
     [disabled]="currentWorkoutDisplay >= 6"
   >
     <img src="../../../assets/images/arrow_left.svg" alt="left arrow">
@@ -20,7 +20,7 @@
   <button
     mat-fab
     class="workout-toggle"
-    (click)="updateCurrentWorkoutDisplay('right')"
+    (click)="slideWorkoutDisplay('right')"
     [disabled]="currentWorkoutDisplay < 1"
   >
     <img src="../../../assets/images/arrow_right.svg" alt="left arrow">

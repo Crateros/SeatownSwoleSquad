@@ -1,0 +1,123 @@
+<div class="gutters upload-workouts-panel">
+  <mat-expansion-panel [(expanded)]="isPanelExpanded" id="expansion-panel-toggle">
+    <mat-expansion-panel-header>
+      <mat-panel-title class="bangers font-medium">Edit Workouts</mat-panel-title>
+      <mat-panel-description *ngIf="isPanelExpanded" class="bangers font-small color2">
+        <div class="edit-prompt font-small">What do you want to edit?</div>
+        <div class="edit-options" (click)="$event.stopPropagation()">
+          <button
+            mat-raised-button
+            class="bangers font-small bg-color6 color1"
+            [class.active]="activeEditOption === 'today'"
+            (click)="$event.stopPropagation(); setActiveEditOption('today')"
+          >
+            Today
+          </button>
+          <button
+            mat-raised-button
+            class="bangers font-small bg-color6 color1"
+            [class.active]="activeEditOption === 'tomorrow'"
+            (click)="$event.stopPropagation(); setActiveEditOption('tomorrow')"
+          >
+            Tomorrow
+          </button>
+          <button
+            mat-raised-button
+            class="bangers font-small bg-color6 color1"
+            [class.active]="activeEditOption === 'nextWeek'"
+            (click)="$event.stopPropagation(); setActiveEditOption('nextWeek')"
+          >
+            Next Week
+          </button>
+        </div>
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <mat-card *ngFor="let edit of currentEdits; let index = index" class="workout-display">
+      <!-- Workout Info -->
+      <mat-card-header class="date">
+        <mat-card-title>
+          <div class="font-medium">{{ currentEdits[index].formattedDate }}</div>
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content class="daily-workout-content">
+        <!-- Skill Section -->
+        <mat-card class="skill-card bg-color3">
+          <mat-card-title class="title font-medium">Skill :</mat-card-title>
+          <mat-card-content>
+            <textarea
+              *ngIf="previewEdits === false"
+              class="board-marker font-small"
+              [(ngModel)]="currentEdits[index].skillEditText"
+              cdkTextareaAutosize
+              #autosize="cdkTextareaAutosize"
+              cdkAutosizeMinRows="1"
+              cdkAutosizeMaxRows="7"
+              placeholder="Skill text goes here">
+            </textarea>
+            <div *ngIf="previewEdits === true">
+              <p class="font-medium" *ngFor="let text of edit.skillEditDisplay">{{ text }}</p>
+            </div>
+          </mat-card-content>
+        </mat-card>
+        <!-- WOD Section -->
+        <mat-card class="wod-card bg-color3">
+          <mat-card-title class="title">
+            <div class="flex">
+              <div class="wod-title-spacer font-medium">Wod :&nbsp;</div>
+              <!-- <div *ngIf="isWod" [ngClass]="{ 'color2': isWod }">{{ wod.workoutName }}</div> -->
+              <!-- <div *ngIf="!isWod">{{ wod.workoutName }}</div> -->
+            </div>
+          </mat-card-title>
+          <mat-card-content>
+            <textarea
+              *ngIf="previewEdits === false"
+              class="board-marker font-small"
+              [(ngModel)]="currentEdits[index].workoutEditText"
+              cdkTextareaAutosize
+              #autosize="cdkTextareaAutosize"
+              cdkAutosizeMinRows="1"
+              cdkAutosizeMaxRows="7"
+              placeholder="Workout text goes here">
+            </textarea>
+            <div *ngIf="previewEdits === true">
+              <p class="font-medium" *ngFor="let text of edit.workoutEditDisplay">{{ text }}</p>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </mat-card-content>
+    </mat-card>
+    <mat-action-row>
+      <button
+        *ngIf="!previewEdits"
+        (click)="clearEdits()"
+        mat-raised-button
+        class="bangers font-small bg-color6 color1"
+      >
+        Clear
+      </button>
+      <button
+        *ngIf="previewEdits"
+        (click)="previewEdits = false"
+        mat-raised-button
+        class="bangers font-small bg-color2 color1"
+      >
+        Cancel
+      </button>
+      <button
+        *ngIf="!previewEdits"
+        (click)="previewEdits = true; previewText()"
+        mat-raised-button
+        class="bangers font-small bg-color6 color1"
+      >
+        Preview Workouts
+      </button>
+      <button
+        *ngIf="previewEdits"
+        (click)="saveEdits(); isPanelExpanded = false; previewEdits = false;"
+        mat-raised-button class="bangers font-small bg-color2 color1"
+      >
+        Save Workouts
+      </button>
+    </mat-action-row>
+  </mat-expansion-panel>
+</div>
